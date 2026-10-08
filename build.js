@@ -3,7 +3,7 @@
    Reads registry.json and works/<work>/..., validates, builds search indexes, and emits:
      dist/reader.html   — one self-contained file (all data inline), the USB/kiosk deliverable
      dist/site/         — split folder for a static web server or file:// (json + .js wrappers)
-   Usage: node build.js [--compress] [--only=bundle|site] [--out=dist]
+   Usage: node build.js [--compress] [--only=bundle|site|web] [--out=dist]
      --compress   deflate each inline block (≈4:1 on scripture text); reader inflates on demand
      --profile=profiles/<name>.json   restrict traditions / works / editions for this build (see profiles/)
      --index      also emit prebuilt search indexes (doubles data size; without them the reader scans unit files, which is fine offline)
@@ -117,7 +117,11 @@ const html = src('index.html'), css = src('app.css'), js = src('app.js');
 fs.mkdirSync(OUT, { recursive: true });
 
 /* ---------- 4a. Split site ---------- */
-if (ONLY !== 'bundle') {
+/* --only=site emits the per-file layout (json + js wrappers) for local folders.
+   --only=web emits the compact hosted layout: data/index.json (path -> [chunk, offset, length]) and
+   data/chunk-N.bin (concatenated deflate-raw entries, ~2 MB each); the reader fetches a chunk once and inflates slices.
+   This is what goes on GitHub Pages or any static host. */
+if (ONLY === 'site' || ONLY === 'both') {
   const site = path.join(OUT, 'site');
   fs.rmSync(site, { recursive: true, force: true }); fs.mkdirSync(site, { recursive: true });
   fs.writeFileSync(path.join(site, 'index.html'), html);
@@ -131,9 +135,30 @@ if (ONLY !== 'bundle') {
   }
   console.log(`site:   ${site} (${data.size} data files, each as .json and .js)`);
 }
+if (ONLY === 'web') {
+  const web = path.join(OUT, 'web');
+  fs.rmSync(web, { recursive: true, force: true }); fs.mkdirSync(path.join(web, 'data'), { recursive: true });
+  fs.writeFileSync(path.join(web, 'index.html'), html.replace(/<!--BUILD:CSS-->[\s\S]*?<!--\/BUILD:CSS-->/, '<link rel="stylesheet" href="app.css">').replace(/<!--BUILD:DATA-->[\s\S]*?<!--\/BUILD:DATA-->/, '<script type="text/plain" data-web="data/"></script>'));
+  fs.writeFileSync(path.join(web, 'app.css'), css);
+  fs.writeFileSync(path.join(web, 'app.js'), js);
+  fs.writeFileSync(path.join(web, '.nojekyll'), '');
+  const CHUNK = 2 * 1024 * 1024, index = {};
+  let chunkNo = 0, parts = [], size = 0, total = 0, raw = 0;
+  const flush = () => { if (!parts.length) return; fs.writeFileSync(path.join(web, 'data', `chunk-${chunkNo}.bin`), Buffer.concat(parts)); total += size; chunkNo++; parts = []; size = 0; };
+  for (const [p, obj] of data) {
+    const json = Buffer.from(JSON.stringify(obj)); raw += json.length;
+    const z = zlib.deflateRawSync(json, { level: 9 });
+    index[p] = [chunkNo, size, z.length]; parts.push(z); size += z.length;
+    if (size >= CHUNK) flush();
+  }
+  flush();
+  fs.writeFileSync(path.join(web, 'data', 'index.json'), JSON.stringify(index));
+  const mb = n => (n / 1048576).toFixed(1) + ' MB';
+  console.log(`web:    ${web} — ${mb(total)} in ${chunkNo} chunks (${mb(raw)} raw), ${data.size} files`);
+}
 
 /* ---------- 4b. Single-file bundle (streamed; data grouped into ~2 MB chunk blocks so the DOM stays small) ---------- */
-if (ONLY !== 'site') {
+if (ONLY === 'bundle' || ONLY === 'both') {
   const fp = path.join(OUT, 'reader.html');
   const head = html.replace(/<!--BUILD:CSS-->[\s\S]*?<!--\/BUILD:CSS-->/, `<style>\n${css}\n</style>`);
   const [before, afterData] = head.split(/<!--BUILD:DATA-->[\s\S]*?<!--\/BUILD:DATA-->/);

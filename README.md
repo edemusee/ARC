@@ -91,6 +91,7 @@ traditions are on, which works are excluded, and for any work which editions are
 | --- | --- | --- | --- | --- |
 | standard | `node build.js --compress --only=bundle --profile=profiles/standard.json` | ≈ 296 MB | ≈ 7 s | all traditions; 65 Bibles in 36 languages |
 | full | `node build.js --compress --only=bundle` | ≈ 558 MB | ≈ 20 s | everything: 175 Bibles in 59 languages |
+| web | `node build.js --only=web --profile=profiles/web.json` | ≈ 151 MB folder | < 1 s | hosted layout for GitHub Pages or any static server: `data/index.json` + ~2 MB `chunk-N.bin` files fetched on demand; public-domain / open-licence editions only (34 Bibles) |
 
 Once open, any book opens in well under a second in either build. Use `--max-old-space-size=6000` on `node` for the
 full build. Without `--compress` files are ≈ 2.4× larger. `--index` adds prebuilt search indexes (doubles data);

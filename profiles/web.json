@@ -1,0 +1,43 @@
+{
+  "name": "web",
+  "traditions": null,
+  "exclude": [],
+  "editions": {
+    "bible": [
+      "kjv",
+      "drb",
+      "web",
+      "asv",
+      "lxx-brenton",
+      "rvr1909",
+      "luther1912",
+      "vulgate",
+      "crampon",
+      "cs-kralicka",
+      "ja-kougo",
+      "cpdv",
+      "jps1917",
+      "ru-synodal",
+      "hbo-wlc",
+      "ro-cornilescu",
+      "nl-statenvertaling",
+      "grc-tr",
+      "uk-ogienko",
+      "geneva1599",
+      "bsb",
+      "zh-cuv",
+      "zh-cuv-simp",
+      "hu-karoli",
+      "pt-almeida",
+      "tl-ang-biblia",
+      "th-kjv",
+      "vi-cadman",
+      "my-judson",
+      "fr-bbb",
+      "fr-darby",
+      "de-elberfelder1905",
+      "ht-haitian",
+      "ml-1910"
+    ]
+  }
+}

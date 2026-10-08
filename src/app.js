@@ -19,6 +19,19 @@ const Lib = (() => {
   const perPath = new Map();
   if (!index) for (const el of document.querySelectorAll('script[type="text/plain"][data-path]')) perPath.set(el.dataset.path, el);
   const inBundle = index ? Object.keys(index).length > 0 : perPath.size > 0;
+  // Hosted layout: data/index.json maps path -> [chunk, offset, length]; chunks are concatenated deflate-raw entries.
+  const webEl = document.querySelector('script[type="text/plain"][data-web]');
+  const webBase = webEl ? webEl.dataset.web : null;
+  let webIndex = null; const webChunks = new Map();
+  async function fromWeb(path) {
+    if (!webIndex) webIndex = fetch(webBase + 'index.json').then(r => r.json());
+    const idx = await webIndex; const e = idx[path]; if (!e) throw new Error('Not in library: ' + path);
+    const [n, off, len] = e;
+    if (!webChunks.has(n)) webChunks.set(n, fetch(`${webBase}chunk-${n}.bin`).then(r => { if (!r.ok) throw new Error('chunk ' + n); return r.arrayBuffer(); }));
+    const buf = await webChunks.get(n);
+    const stream = new Blob([new Uint8Array(buf, off, len)]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+    return JSON.parse(await new Response(stream).text());
+  }
 
   async function inflate(body, enc) {
     if (!enc) return JSON.parse(body);
@@ -45,6 +58,7 @@ const Lib = (() => {
     if (cache.has(path)) return cache.get(path);
     let p;
     if (inBundle) p = fromBundle(path);
+    else if (webBase) p = fromWeb(path);
     else if (isFile) p = new Promise((resolve, reject) => {
       pending.set(path, resolve);
       const s = document.createElement('script');
@@ -57,7 +71,7 @@ const Lib = (() => {
     p.catch(() => cache.delete(path));
     return p;
   }
-  return { load, mode: inBundle ? 'bundle' : isFile ? 'file' : 'http' };
+  return { load, mode: inBundle ? 'bundle' : webBase ? 'web' : isFile ? 'file' : 'http' };
 })();
 
 /* ---------------- Helpers ---------------- */
