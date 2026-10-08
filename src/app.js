@@ -236,9 +236,9 @@ function renderLibrary() {
 function renderTraditionBody(t) {
   const wrap = el('div', { class: 'trad-body' });
   if (t.families?.length) {
-    const sel = el('select', { onchange: e => { S.family = e.target.value; renderLibrary(); if (S.work) renderEditionPicker(); } }, el('option', { value: '', text: 'All families' }));
+    const sel = el('select', { onchange: e => { S.family = e.target.value; renderLibrary(); if (S.work) renderEditionPicker(); } }, el('option', { value: '', text: 'All traditions' }));
     for (const f of t.families) sel.append(el('option', { value: f.id, text: f.label, selected: S.family === f.id }));
-    wrap.append(el('div', { class: 'family-row' }, 'Family', sel));
+    wrap.append(el('div', { class: 'family-row' }, 'Tradition', sel));
   }
   const shelves = [['scripture', 'Scripture'], ['documents', 'Foundational Documents'], ['devotional', 'Devotional & Daily Reading']];
   for (const [key, label] of shelves) {
