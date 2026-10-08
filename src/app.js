@@ -1,4 +1,4 @@
-/* Sacred Texts Reader — generic reader driven by registry.json and per-work manifests.
+/* ARC — Agency Religious Codex — generic reader driven by registry.json and per-work manifests.
    No framework, no build-time dependencies. Works from a single bundled file (inline data blocks),
    from a folder opened via file:// (.js unit wrappers), or from a static web server (.json). */
 (() => {

@@ -1,6 +1,6 @@
-# Sacred Texts Reader — prototype
+# ARC — Agency Religious Codex
 
-A multi-tradition scripture reader that runs offline. The reader is generic: it knows nothing about any
+ARC is a multi-tradition scripture reader that runs offline. The reader is generic: it knows nothing about any
 particular text and is driven entirely by `registry.json` and the per-work `manifest.json` files.
 See the spec document ("Multi-Faith Reader — Data Model Spec") for the schema.
 

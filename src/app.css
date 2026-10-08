@@ -169,3 +169,10 @@ body.show-footnotes .fn-mark { display: none; }
 #btn-top-f { font-size: 18px; }
 @media (max-width: 700px) { #float-nav { right: 10px; bottom: 10px; } .float-btn { width: 40px; height: 40px; } }
 @media print { #float-nav, #topbar { display: none; } }
+
+/* Brand */
+#brand { font-weight: 700; letter-spacing: .08em; color: var(--accent); margin-right: 6px; }
+#brand:has(+ #crumb-tradition:not(:empty))::after { content: "·"; color: var(--muted); margin-left: 8px; font-weight: 400; }
+#crumb-tradition:empty + .crumb-work:empty ~ #crumb-unit:empty { display: none; }
+#welcome h1 { font-size: 56px; letter-spacing: .12em; margin-bottom: 0; }
+#welcome .tagline { font-family: var(--serif); font-size: 20px; color: var(--muted); margin: 4px 0 28px; }

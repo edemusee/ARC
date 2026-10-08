@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Build script for the Sacred Texts Reader.
+/* Build script for the ARC (Agency Religious Codex).
    Reads registry.json and works/<work>/..., validates, builds search indexes, and emits:
      dist/reader.html   — one self-contained file (all data inline), the USB/kiosk deliverable
      dist/site/         — split folder for a static web server or file:// (json + .js wrappers)
