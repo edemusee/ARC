@@ -1,0 +1,426 @@
+{
+  "schemaVersion": 1,
+  "deployment": "full",
+  "traditions": [
+    {
+      "id": "bahai",
+      "label": "Baha'i Faith",
+      "recognizedBy": [
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [],
+      "shelves": {
+        "scripture": [
+          "kitab-i-aqdas",
+          "kitab-i-iqan",
+          "hidden-words",
+          "gleanings",
+          "prayers-and-meditations"
+        ],
+        "documents": [
+          "some-answered-questions",
+          "will-and-testament"
+        ],
+        "devotional": [
+          "bahai-prayers"
+        ]
+      }
+    },
+    {
+      "id": "buddhism",
+      "label": "Buddhism",
+      "recognizedBy": [
+        "BOP",
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [
+        {
+          "id": "theravada",
+          "label": "Theravada"
+        },
+        {
+          "id": "mahayana",
+          "label": "Mahayana"
+        },
+        {
+          "id": "vajrayana",
+          "label": "Vajrayana"
+        }
+      ],
+      "shelves": {
+        "scripture": [
+          "dhammapada",
+          "dhammacakkappavattana",
+          "satipatthana",
+          "anapanasati",
+          "metta-sutta",
+          "mangala-sutta",
+          "kalama-sutta",
+          "sigalovada",
+          "mahaparinibbana",
+          "heart-sutra",
+          "diamond-sutra",
+          "lotus-sutra",
+          "sukhavativyuha"
+        ],
+        "documents": [
+          "visuddhimagga"
+        ],
+        "devotional": []
+      }
+    },
+    {
+      "id": "christianity",
+      "label": "Christianity",
+      "recognizedBy": [
+        "BOP",
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [
+        {
+          "id": "catholic",
+          "label": "Catholic"
+        },
+        {
+          "id": "eastern-orthodox",
+          "label": "Eastern Orthodox"
+        },
+        {
+          "id": "oriental-orthodox",
+          "label": "Oriental Orthodox"
+        },
+        {
+          "id": "anglican",
+          "label": "Anglican"
+        },
+        {
+          "id": "lutheran",
+          "label": "Lutheran"
+        },
+        {
+          "id": "reformed",
+          "label": "Reformed / Presbyterian"
+        },
+        {
+          "id": "baptist",
+          "label": "Baptist"
+        },
+        {
+          "id": "methodist",
+          "label": "Methodist / Wesleyan"
+        },
+        {
+          "id": "pentecostal",
+          "label": "Pentecostal"
+        },
+        {
+          "id": "anabaptist",
+          "label": "Anabaptist"
+        },
+        {
+          "id": "adventist",
+          "label": "Adventist"
+        },
+        {
+          "id": "restoration",
+          "label": "Restoration"
+        },
+        {
+          "id": "nondenominational",
+          "label": "Non-denominational"
+        }
+      ],
+      "shelves": {
+        "scripture": [
+          "bible",
+          "enoch",
+          "jubilees"
+        ],
+        "documents": [
+          "apostles-creed",
+          "nicene-creed",
+          "nicene-creed-325",
+          "athanasian-creed",
+          "chalcedon",
+          "council-of-orange",
+          "gregory-declaration",
+          "ignatius-creed",
+          "irenaeus-rule",
+          "tertullian-rule",
+          "waldensian-confession",
+          "thirty-nine-articles",
+          "luther-small-catechism",
+          "baltimore-catechism",
+          "schleitheim",
+          "heidelberg",
+          "belgic",
+          "dort",
+          "westminster-confession",
+          "westminster-larger",
+          "westminster-shorter",
+          "scots-confession",
+          "second-helvetic",
+          "french-confession",
+          "tetrapolitan",
+          "zwingli-fidei-ratio",
+          "first-helvetic",
+          "first-basel",
+          "consensus-tigurinus",
+          "ten-theses-berne",
+          "zwingli-67-articles",
+          "catechism-young-children",
+          "flavel-exposition",
+          "henry-scripture-catechism",
+          "fisher-catechism-explained",
+          "london-1689",
+          "keach",
+          "baptist-catechism-1695",
+          "puritan-catechism",
+          "abstract-of-principles"
+        ],
+        "devotional": [
+          "spurgeon-me",
+          "daily-light",
+          "bcp-collects"
+        ]
+      }
+    },
+    {
+      "id": "hinduism",
+      "label": "Hinduism",
+      "recognizedBy": [
+        "BOP",
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [
+        {
+          "id": "vaishnava",
+          "label": "Vaishnava"
+        },
+        {
+          "id": "shaiva",
+          "label": "Shaiva"
+        },
+        {
+          "id": "shakta",
+          "label": "Shakta"
+        },
+        {
+          "id": "smarta",
+          "label": "Smarta"
+        }
+      ],
+      "shelves": {
+        "scripture": [
+          "bhagavad-gita",
+          "isha",
+          "kena",
+          "katha",
+          "prashna",
+          "mundaka",
+          "mandukya",
+          "aitareya",
+          "rig-veda",
+          "ramayana",
+          "ramcharitmanas"
+        ],
+        "documents": [
+          "yoga-sutras"
+        ],
+        "devotional": [
+          "hanuman-chalisa",
+          "vishnu-sahasranama"
+        ]
+      }
+    },
+    {
+      "id": "islam",
+      "label": "Islam",
+      "recognizedBy": [
+        "BOP",
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [
+        {
+          "id": "sunni",
+          "label": "Sunni"
+        },
+        {
+          "id": "shia",
+          "label": "Shia"
+        }
+      ],
+      "shelves": {
+        "scripture": [
+          "quran"
+        ],
+        "documents": [
+          "bukhari",
+          "muslim",
+          "abudawud",
+          "tirmidhi",
+          "nasai",
+          "ibnmajah",
+          "malik",
+          "nawawi40",
+          "tahawiyyah",
+          "al-kafi",
+          "nahj-al-balagha"
+        ],
+        "devotional": [
+          "juz-of-the-day",
+          "asma-ul-husna"
+        ]
+      }
+    },
+    {
+      "id": "judaism",
+      "label": "Judaism",
+      "recognizedBy": [
+        "BOP",
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [
+        {
+          "id": "orthodox",
+          "label": "Orthodox"
+        },
+        {
+          "id": "conservative",
+          "label": "Conservative"
+        },
+        {
+          "id": "reform",
+          "label": "Reform"
+        }
+      ],
+      "shelves": {
+        "scripture": [
+          "tanakh"
+        ],
+        "documents": [
+          "mishnah",
+          "pirkei-avot",
+          "talmud-bavli",
+          "rambam-13-principles",
+          "parashah"
+        ],
+        "devotional": [
+          "siddur-edot-hamizrach",
+          "siddur-ashkenaz",
+          "tehillim-daily",
+          "tehillim-weekly"
+        ]
+      }
+    },
+    {
+      "id": "lds",
+      "label": "Latter-day Saints",
+      "recognizedBy": [
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [],
+      "shelves": {
+        "scripture": [
+          "book-of-mormon",
+          "doctrine-and-covenants",
+          "pearl-of-great-price",
+          "bible"
+        ],
+        "documents": [
+          "articles-of-faith",
+          "jst-appendix"
+        ],
+        "devotional": []
+      }
+    },
+    {
+      "id": "sikhism",
+      "label": "Sikhism",
+      "recognizedBy": [
+        "BOP",
+        "DoD"
+      ],
+      "hasCanon": true,
+      "enabled": true,
+      "families": [],
+      "shelves": {
+        "scripture": [
+          "guru-granth-sahib"
+        ],
+        "documents": [],
+        "devotional": [
+          "nitnem"
+        ]
+      }
+    },
+    {
+      "id": "moorish-science",
+      "label": "Moorish Science Temple",
+      "recognizedBy": [
+        "BOP"
+      ],
+      "hasCanon": true,
+      "enabled": false,
+      "families": [],
+      "shelves": {
+        "scripture": [],
+        "documents": [],
+        "devotional": []
+      }
+    },
+    {
+      "id": "christian-science",
+      "label": "Christian Science",
+      "recognizedBy": [],
+      "hasCanon": true,
+      "enabled": false,
+      "families": [],
+      "shelves": {
+        "scripture": [],
+        "documents": [],
+        "devotional": []
+      }
+    },
+    {
+      "id": "jainism",
+      "label": "Jainism",
+      "recognizedBy": [],
+      "hasCanon": true,
+      "enabled": false,
+      "families": [],
+      "shelves": {
+        "scripture": [],
+        "documents": [],
+        "devotional": []
+      }
+    },
+    {
+      "id": "zoroastrianism",
+      "label": "Zoroastrianism",
+      "recognizedBy": [],
+      "hasCanon": true,
+      "enabled": false,
+      "families": [],
+      "shelves": {
+        "scripture": [],
+        "documents": [],
+        "devotional": []
+      }
+    }
+  ]
+}

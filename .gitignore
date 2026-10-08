@@ -1,0 +1,9 @@
+# Built bundles and sites
+dist/
+dist-*/
+# Converted texts (1.7 GB) — regenerate with the converters, or fetch from a release
+works/
+# Node modules used by converters
+convert/*/node_modules/
+*.log
+.DS_Store

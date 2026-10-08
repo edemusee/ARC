@@ -1,0 +1,20 @@
+{
+  "name": "standard",
+  "traditions": null,
+  "exclude": [],
+  "editions": {
+    "bible": [
+      "kjv", "esv", "en-niv", "en-nasb2020", "en-nkjv", "en-nlt", "en-csb", "en-amp", "en-cev", "en-gnt",
+      "nabre", "drb", "cpdv", "web", "asv", "bsb", "lxx-brenton", "jps1917", "geneva1599", "en-ojb",
+      "hbo-wlc", "grc-tr", "vulgate",
+      "es-rvr1960", "rvr1909", "es-bes",
+      "pt-nvi", "pt-ara", "pt-almeida",
+      "fr-bbb", "crampon", "fr-darby",
+      "luther1912", "de-schlachter1951", "de-elberfelder1905",
+      "it-riveduta2020", "nl-statenvertaling", "ru-synodal", "uk-ogienko", "pl-ugdanska", "ro-cornilescu", "hu-karoli", "cs-kralicka", "el-fpb",
+      "zh-cuv", "zh-cuv-simp", "zh-cnv", "ko-krv", "ja-kougo", "vi-cadman", "tl-ang-biblia", "th-kjv", "my-judson",
+      "ar-kehm", "fa-pcb", "tr-ytc", "sw-sruv", "ht-haitian",
+      "hi-irv", "ur-irv", "bn-irv", "ta-irv", "te-irv", "pa-irv", "ml-1910"
+    ]
+  }
+}
